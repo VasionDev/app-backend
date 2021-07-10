@@ -1,0 +1,42 @@
+<%- include('./partials/header.ejs') %> 
+
+    <div class="manageUser-container">
+      <div id="title">
+        <h2>Manage Category</h2>
+      </div>
+
+      <div class="new-message-container new-user">
+        <a href="#" onclick="openModal('add-category-modal')">+</a>
+      </div>
+
+      <div id="users-table">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>image</th>
+              <th>Manage</th>
+            </tr>
+          </thead>
+          <tbody id="users-table">
+            <% if(categories.length > 0) {
+              categories.forEach( (category, index) => {%>
+                <tr id="category-<%=category.id%>">
+                  <td><%=index+1%></td>
+                  <td><%=category.name%></td>
+                  <td><img style="width: 100px; height: auto;" src="<%=category.image%>" /></td>
+                  <td class="manage">
+                    <a href="/categories/edit/<%=category.id%>"><img src="/images/edit.png" alt="Edit" /></a>
+                    <img src="/images/trash.png" alt="Delete" onclick="onCategoryDelete('<%=category.id%>')" />
+                  </td>
+                </tr>
+              <%})
+            }%> 
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <%-include('./partials/category-modal.ejs')%>
+    <%- include('./partials/footer.ejs') %> 

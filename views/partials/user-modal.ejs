@@ -1,0 +1,30 @@
+<div class="modal-wrapper" id="add-user-modal">
+    <div class="modal">
+      <a href="#" onclick="closeModal('add-user-modal')" class="modal-close">+</a>
+      <div class="modal-title">
+        <h2>Create New User</h2>
+      </div>
+      <div class="modal-body">
+        <form class="js-action" action="/users" method="POST" id="add-user-form" enctype="multipart/form-data">
+          <input type="text" placeholder="enter name" name="name" />
+          <p class="error name-error">This is error</p>
+          <input type="text" placeholder="enter email" name="email" />
+          <p class="error email-error">This is error</p>
+          <input type="text" placeholder="enter mobile" name="mobile" />
+          <p class="error mobile-error">This is error</p>
+          <input
+            type="password"
+            placeholder="enter password"
+            name="password"
+            autocomplete="off"
+          />
+          <p class="error password-error">This is error</p>
+          <input type="file" name="image" />
+          <p class="error image-error">This is error</p>
+          <p class="error common-error">This is error</p>
+          <input class="submit-button" type="submit" value="Submit" />
+          <div class="loader hide">Loading...</div>
+        </form>
+      </div>
+    </div>
+  </div>

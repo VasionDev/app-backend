@@ -1,0 +1,37 @@
+<%- include('./partials/header.ejs') %> 
+    <div class="manageUser-container">
+        <div id="title">
+            <h2>Manage Quiz</h2>
+            <% if(quiz) {%>
+                <form class="edit-form js-action" action="/quizzes/edit/<%=quiz.id%>" method="PUT" id="add-quiz-form" enctype="multipart/form-data">
+                    <input type="text" placeholder="enter category name" name="title" value="<%=quiz.title%>" />
+                    <p class="error title-error">This is error</p>
+                    <select name="category" id="">
+                      <option value="">Select categoy</option>
+                      <% if(categories.length > 0){
+                        categories.forEach(category => {%>
+                          <option <%-category.id==quiz.category ? 'selected' : ''%> value="<%=category.id%>"><%=category.name%></option>
+                      <%  })
+                      } %>
+                    </select>
+                    <p class="error category-error">This is error</p>
+                    <select name="location" id="">
+                      <option value="">Select District</option>
+                      <% if(districtList.length > 0){
+                        districtList.forEach(district => {%>
+                          <option <%-quiz.location==district ? 'selected' : ''%> value="<%=district%>"><%=district%></option>
+                      <%  })
+                      } %>
+                    </select>
+                    <p class="error location-error">This is error</p>
+                    <img style="width: 200px; height: auto;" src="<%=quiz.image%>" alt="">
+                    <input type="file" name="image" />
+                    <p class="error image-error">This is error</p>
+                    <p class="error common-error">This is error</p>
+                    <input class="submit-button" type="submit" value="Submit" />
+                    <div class="loader hide">Loading...</div>
+                </form>
+            <%} %> 
+        </div>
+    </div>
+<%- include('./partials/footer.ejs') %> 

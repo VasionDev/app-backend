@@ -1,0 +1,40 @@
+<%- include('./partials/header.ejs') %> 
+
+<div class="manageUser-container">
+  <div id="title">
+    <h2>Manage Users</h2>
+  </div>
+  <div class="new-message-container new-user">
+    <a href="#" onclick="openModal('add-user-modal')">+</a>
+  </div>
+  <div id="users-table">
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Manage</th>
+        </tr>
+      </thead>
+      <tbody id="users-table">
+        <% if(users) {
+          users.forEach(user => {%>
+            <tr id="user-<%=user.id%>">
+              <td class="name">
+                <img src="<%=user.image%>" />
+                <span><%=user.name%></span>
+              </td>
+              <td><%=user.email%></td>
+              <td class="manage">
+                <img src="./images/edit.png" alt="Edit" />
+                <img src="./images/trash.png" alt="Delete" onclick="onUserDelete('<%=user.id%>')" />
+              </td>
+            </tr>
+        <%})
+          } %> 
+      </tbody>
+    </table>
+  </div>
+</div>
+<%- include('./partials/user-modal.ejs') %> 
+<%- include('./partials/footer.ejs') %> 

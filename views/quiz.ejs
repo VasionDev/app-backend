@@ -1,0 +1,46 @@
+<%- include('./partials/header.ejs') %> 
+
+    <div class="manageUser-container">
+      <div id="title">
+        <h2>Manage Quiz</h2>
+      </div>
+
+      <div class="new-message-container new-user">
+        <a href="#" onclick="openModal('add-quiz-modal')">+</a>
+      </div>
+
+      <div id="users-table">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Question</th>
+              <th>image</th>
+              <th>Location</th>
+              <th>Category</th>
+              <th>Manage</th>
+            </tr>
+          </thead>
+          <tbody id="users-table">
+            <% if(quizzes.length > 0) {
+              quizzes.forEach( (quiz, index) => {%>
+                <tr id="quiz-<%=quiz.id%>">
+                  <td><%=index+1%></td>
+                  <td><%=quiz.title%></td>
+                  <td><img style="width: 100px; height: auto;" src="<%=quiz.image%>" /></td>
+                  <td><%=quiz.location%></td>
+                  <td><%- quiz.category ? quiz.category.name : '-'%></td>
+                  <td class="manage">
+                    <a href="/quizzes/edit/<%=quiz.id%>"><img src="/images/edit.png" alt="Edit" /></a>
+                    <img src="/images/trash.png" alt="Delete" onclick="onQuizDelete('<%=quiz.id%>')" />
+                  </td>
+                </tr>
+              <%})
+            }%> 
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <%-include('./partials/quiz-modal.ejs')%>
+    <%- include('./partials/footer.ejs') %> 

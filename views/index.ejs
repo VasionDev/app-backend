@@ -1,0 +1,27 @@
+<%- include('./partials/header.ejs') %> 
+
+    <div id="login-container">
+      <div id="left-column"></div>
+      <div id="branding">
+        <img src="./images/logo.png" />
+        <h1>Login - Quiz Application</h1>
+      </div>
+      <div id="login-form">
+        <form method="POST" action="/">
+          <input type="text" name="username" placeholder="enter mobile or email" value="<%=data.username%>" />
+          <% if(errors.username){%>
+            <p class="error show"><%=errors.username.msg%></p>
+          <%} %> 
+          <input type="password" name="password" placeholder="enter password" />
+          <% if(errors.password){%>
+            <p class="error show"><%=errors.password.msg%></p>
+          <%} %>
+          <% if(errors.common){%>
+            <p class="error show"><%=errors.common.msg%></p>
+          <%} %>
+          <input class="submit-button" type="submit" value="Login" />
+          <div class="loader hide">Loading...</div>
+        </form>
+      </div> 
+    </div>
+<%- include('./partials/footer.ejs') %> 

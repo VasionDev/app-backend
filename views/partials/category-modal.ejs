@@ -1,0 +1,21 @@
+<div class="modal-wrapper" id="add-category-modal">
+    <div class="modal">
+      <a href="#" onclick="closeModal('add-category-modal')" class="modal-close">+</a>
+      <div class="modal-title">
+        <h2>Create New Category</h2>
+      </div>
+      <div class="modal-body">
+        <form class="js-action" action="/categories" method="POST" id="add-category-form" enctype="multipart/form-data">
+          <input type="text" placeholder="enter category name" name="name" />
+          <p class="error name-error">This is error</p>
+          <input type="file" name="image" />
+          <p class="error image-error">This is error</p>
+          <p class="error common-error">This is error</p>
+          <input class="submit-button" type="submit" value="Submit" />
+          <div class="loader hide">Loading...</div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  
