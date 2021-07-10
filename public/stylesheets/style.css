@@ -503,7 +503,7 @@ input[type="submit"]:active {
 #left-column {
   grid-area: left-column;
   background-color: var(--tertiary);
-  background-image: url("../images/illustration.png");
+  background-image: url("https://res.cloudinary.com/dwcs4exdt/image/upload/v1625944945/app/asset/illustration_glplil.png");
   background-size: 68%;
   background-position: center;
   background-repeat: no-repeat;

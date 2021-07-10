@@ -31,7 +31,7 @@ const addUser = async (req, res, next) => {
     try {
         let newUser
         const file64 = formatBufferTo64(req.files[0])
-        const uploadResult = await cloudinaryUpload(file64.content, 'app/category')
+        const uploadResult = await cloudinaryUpload(file64.content, 'app/user')
         const encodedPassword = await bcrypt.hash(req.body.password, 10)
         newUser = new User({
             ...req.body,
