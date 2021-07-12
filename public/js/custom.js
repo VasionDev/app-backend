@@ -55,17 +55,18 @@ if(form) {
             }, 500)
         }else {
             const modal = form.closest(".modal-wrapper")
+            const successMessage = Toastify({
+                text: response.success,
+                duration: 1000,
+            })
             if(modal) {
                 closeModal(modal.getAttribute('id'))
-                const successMessage = Toastify({
-                    text: response.success,
-                    duration: 1000,
-                })
                 successMessage.showToast()
                 setTimeout(()=> {
                     location.reload()
                 }, 1000)
             }else {
+                successMessage.showToast()
                 setTimeout(()=> {
                     location.reload('/user')
                 }, 1000)
